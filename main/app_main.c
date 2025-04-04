@@ -25,7 +25,7 @@ void app_main(void)
 {
     gui_init();
 
-    wifi_post_start();
+    //wifi_post_start();
 
     // Optionally inject updated data:
     // wifi_post_set_payload("{\"temp\":25.4,\"humidity\":40}");
