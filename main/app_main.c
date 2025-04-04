@@ -9,6 +9,7 @@
 
 //--------------------------------- INCLUDES ----------------------------------
 #include "gui/gui.h"
+#include "wifi_post.h"
 //---------------------------------- MACROS -----------------------------------
 
 //-------------------------------- DATA TYPES ---------------------------------
@@ -23,6 +24,11 @@
 void app_main(void)
 {
     gui_init();
+
+    wifi_post_start();
+
+    // Optionally inject updated data:
+    // wifi_post_set_payload("{\"temp\":25.4,\"humidity\":40}");
 }
 
 //---------------------------- PRIVATE FUNCTIONS ------------------------------
