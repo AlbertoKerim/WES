@@ -36,10 +36,6 @@
 #include "freertos/event_groups.h"
 #include "driver/i2c.h"
 
-#include "veml7700.h"
-#include "hc-sr04.h"
-#include "sht31.h"
-#include "tcrt5000.h"
 #include "sensors.h"
 //#include "gui.h"
 
@@ -67,16 +63,24 @@ void i2c_master_setup(void)
 
 void app_main(void)
 {
-
     gui_init();
+    
     sensors_init();
-    printf("Hello world!\n");
-   
-    float distance = 0.f;
-    float temperature = 0.f;
-    float humidity = 0.f;
+
+    while(true) {
+
+         printf("VEML7700 me");
+        vTaskDelay(1000 / portTICK_PERIOD_MS);
+
+    }
 
     //i2c_master_setup();
+    
+
+    /*
+
+    float distance = 0.f;
+    float humidity = 0.f;float temperature = 0.f;
 
     hcsr04_init();
 
@@ -121,8 +125,13 @@ void app_main(void)
             printf("No object.\n");
         }
 
+        sprintf(array, "Temperature:    %0.2f°C", temperature);
+
+        lv_label_set_text(ui_TempsText, array);
+
         vTaskDelay(2000 / portTICK_PERIOD_MS);
     }
+        */
 }
 
 
