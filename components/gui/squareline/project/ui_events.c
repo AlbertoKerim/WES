@@ -24,3 +24,13 @@ void getTemperature(lv_event_t * e)
 {
 	// Your code here
 }
+
+void funkcija1(lv_event_t * e)
+{
+	// Your code here
+}
+
+void funkcija2(lv_event_t * e)
+{
+	// Your code here
+}

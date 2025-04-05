@@ -10,6 +10,9 @@
 extern "C" {
 #endif
 
+void funkcija1(lv_event_t * e);
+void funkcija2(lv_event_t * e);
+
 #ifdef __cplusplus
 } /*extern "C"*/
 #endif
