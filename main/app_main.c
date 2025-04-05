@@ -69,7 +69,6 @@ void app_main(void)
 
     while(true) {
 
-         printf("VEML7700 me");
         vTaskDelay(1000 / portTICK_PERIOD_MS);
 
     }

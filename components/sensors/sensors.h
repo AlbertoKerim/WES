@@ -10,6 +10,8 @@
 #include "sht31.h"
 #include "tcrt5000.h"
 
+#define SENSOR_REPORTING_PERIOD 1
+
 void sensors_init(void);
 
 #endif

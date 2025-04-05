@@ -1,12 +1,15 @@
 #include "sensors.h"
-#include "esp_timer.h"
+
 
 static char array[32];
+
+static TimerHandle_t SENSOR_timer;
 
 static float humidity = 0.f;
 static float temperature = 0.f;
 
-static void periodic_timer_callback(void* arg);
+static void sensor_cb(TimerHandle_t handle);
+
 void bar_update_task(void *arg)
 {
     while(1)
@@ -18,30 +21,20 @@ void bar_update_task(void *arg)
 
 void sensors_init(void)
 {
-   // xTaskCreate(bar_update_task, "bar_update_task", 2048, NULL, 5, NULL);
-    ESP_ERROR_CHECK(sht31_init());
+    sht31_init();
 
-    const esp_timer_create_args_t periodic_timer_args = {
-        .callback = &periodic_timer_callback,
-        /* name is optional, but may help identify the timer when debugging */
-        .name = "periodic"
-    };
+    SENSOR_timer = xTimerCreate("Sensor_timer", (SENSOR_REPORTING_PERIOD * 1000) / portTICK_PERIOD_MS,
+                            pdTRUE, NULL, sensor_cb);
 
-    esp_timer_handle_t periodic_timer;
-    ESP_ERROR_CHECK(esp_timer_create(&periodic_timer_args, &periodic_timer));
-
-    ESP_ERROR_CHECK(esp_timer_start_periodic(periodic_timer, 500000));
+    xTimerStart(SENSOR_timer, 0);
 
 }
 
-static void periodic_timer_callback(void* arg)
-{
-    ESP_ERROR_CHECK(sht31_read_temp_humi(&temperature, &humidity));
-
-    sprintf(array, "Temperature:    %0.2f°C", temperature);
-
+static void sensor_cb(TimerHandle_t handle){
+    //printf("Hello");
+    sht31_read_temp_humi(&temperature, &humidity);
+    //ESP_LOGI(TAG, "Periodic timer called, time since boot: %lld us", time_since_boot);
+    sprintf(array, "Temperature:  %0.2f", temperature);
     lv_label_set_text(ui_TempsText, array);
-    
 }
-
 
