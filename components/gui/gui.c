@@ -55,9 +55,37 @@ static void _gui_task(void *p_parameter);
 //------------------------- STATIC DATA & CONSTANTS ---------------------------
 static SemaphoreHandle_t p_gui_semaphore;
 
-//------------------------------- GLOBAL DATA ---------------------------------
+//------------------------------- GLOBAL DATA
+bool invert_colors = false;
 
 //------------------------------ PUBLIC FUNCTIONS -----------------------------
+
+void custom_disp_driver_flush(lv_disp_drv_t *disp_drv, const lv_area_t *area, lv_color_t *color_p)
+{
+    if (invert_colors) {
+        for (int y = area->y1; y <= area->y2; y++) {
+            for (int x = area->x1; x <= area->x2; x++) {
+                lv_color_t *pixel = &color_p[(y - area->y1) * (area->x2 - area->x1 + 1) + (x - area->x1)];
+                pixel->full = ~pixel->full; // Invert the color
+            }
+        }
+    }
+
+    disp_driver_flush(disp_drv, area, color_p); // Call the original flush function
+}
+
+void toggle_invert_colors()
+{
+    invert_colors = !invert_colors;
+
+    // Force a screen refresh
+    lv_disp_t *disp = lv_disp_get_default(); // Get the default display
+    if (disp) {
+        lv_obj_t *scr = lv_disp_get_scr_act(disp); // Get the active screen
+        lv_obj_invalidate(scr);                   // Invalidate the screen
+    }
+}
+
 void gui_init()
 {
     /* The ESP32 MCU has got two cores - Core 0 and Core 1, each capable of running tasks independently.
@@ -80,6 +108,7 @@ static void _lv_tick_timer(void *p_arg)
 
     lv_tick_inc(LV_TICK_PERIOD_MS);
 }
+
 
 static void _gui_task(void *p_parameter)
 {
@@ -108,7 +137,7 @@ static void _gui_task(void *p_parameter)
     disp_drv.hor_res = LV_HOR_RES_MAX;
     disp_drv.ver_res = LV_VER_RES_MAX;
     lv_disp_drv_init(&disp_drv);
-    disp_drv.flush_cb = disp_driver_flush;
+    disp_drv.flush_cb = custom_disp_driver_flush;
 
     disp_drv.draw_buf = &disp_draw_buf;
     lv_disp_drv_register(&disp_drv);
