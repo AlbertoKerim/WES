@@ -13,8 +13,6 @@ extern "C" {
 #include "lvgl.h"
 
 #include "ui_helpers.h"
-
-
 #include "ui_events.h"
 
 void SpinAndLargen_Animation(lv_obj_t * TargetObject, int delay);
@@ -26,18 +24,21 @@ void ShowBtn_Animation(lv_obj_t * TargetObject, int delay);
 // SCREEN: ui_Home_Scr
 void ui_Home_Scr_screen_init(void);
 extern lv_obj_t * ui_Home_Scr;
+extern lv_obj_t * ui_TempsText;
 void ui_event_Button1(lv_event_t * e);
 extern lv_obj_t * ui_Button1;
-void ui_event_Label1(lv_event_t * e);
-extern lv_obj_t * ui_Label1;
 void ui_event_Button2(lv_event_t * e);
 extern lv_obj_t * ui_Button2;
-extern lv_obj_t * ui_TextArea1;
-// SCREEN: ui_Screen1
-void ui_Screen1_screen_init(void);
-extern lv_obj_t * ui_Screen1;
+// SCREEN: ui_Screen2
+void ui_Screen2_screen_init(void);
+extern lv_obj_t * ui_Screen2;
 void ui_event_Button3(lv_event_t * e);
 extern lv_obj_t * ui_Button3;
+// SCREEN: ui_Screen3
+void ui_Screen3_screen_init(void);
+extern lv_obj_t * ui_Screen3;
+void ui_event_Button4(lv_event_t * e);
+extern lv_obj_t * ui_Button4;
 extern lv_obj_t * ui____initial_actions0;
 
 

@@ -10,9 +10,6 @@
 extern "C" {
 #endif
 
-void getTemperature(lv_event_t * e);
-void btn_clicked(lv_event_t * e);
-
 #ifdef __cplusplus
 } /*extern "C"*/
 #endif
