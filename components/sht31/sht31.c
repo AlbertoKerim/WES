@@ -1,89 +1,8 @@
-/* 
-  sht31 example
-*/
-
-
-
 #include <stdio.h>
 #include "sht31.h"
 #include <stdio.h>
 #include "esp_log.h"
 #include "driver/i2c.h"
-#include "sdkconfig.h"
-/*
-
-
-static const char *TAG = "sht31 example";
-
-void app_main(void)
-{  
-    float temp, humi;
-    ESP_ERROR_CHECK(sht31_init());
-    while(true) {
-      ESP_ERROR_CHECK(sht31_read_temp_humi(&temp, &humi));
-
-      ESP_LOGI(TAG, "temp = %.2f, humi = %.2f\n", temp, humi);
-      vTaskDelay(2000 / portTICK_PERIOD_MS); 
-    }
-
-}
-    */
-
-/*
-
-#include <stdio.h>
-#include "freertos/FreeRTOS.h"
-#include "freertos/task.h"
-#include "driver/i2c.h"
-
-#define I2C_MASTER_SCL_IO    21    //!< GPIO number used for I2C master clock 
-#define I2C_MASTER_SDA_IO    22    //!< GPIO number used for I2C master data 
-#define I2C_MASTER_NUM       I2C_NUM_1 //!< I2C master I2C port number 
-#define I2C_MASTER_FREQ_HZ   10000    //!< I2C master clock frequency 
-#define SHT31_SENSOR_ADDR    0x44      //!< SHT31 I2C address 
-
-static esp_err_t i2c_master_init(void) {
-    i2c_config_t conf = {
-        .mode = I2C_MODE_MASTER,
-        .sda_io_num = I2C_MASTER_SDA_IO,
-        .scl_io_num = I2C_MASTER_SCL_IO,
-        .sda_pullup_en = GPIO_PULLUP_ENABLE,
-        .scl_pullup_en = GPIO_PULLUP_ENABLE,
-        .master.clk_speed = I2C_MASTER_FREQ_HZ,
-    };
-    esp_err_t err = i2c_param_config(I2C_MASTER_NUM, &conf);
-    if (err != ESP_OK) {
-        return err;
-    }
-    return i2c_driver_install(I2C_MASTER_NUM, conf.mode, 0, 0, 0);
-}
-
-void read_sht31_sensor() {
-    uint8_t data[6];
-    i2c_master_write_read_device(I2C_MASTER_NUM, SHT31_SENSOR_ADDR, NULL, 0, data, sizeof(data), pdMS_TO_TICKS(1000));
-
-    uint16_t temp_raw = (data[0] << 8) | data[1];
-    uint16_t hum_raw = (data[3] << 8) | data[4];
-
-    float temperature = -45 + 175 * ((float)temp_raw / 65535.0);
-    float humidity = 100 * ((float)hum_raw / 65535.0);
-
-    printf("Temperature: %.2f °C, Humidity: %.2f %%\n", temperature, humidity);
-}
-*/
-void app_main() {
-    ESP_ERROR_CHECK(sht31_init());
-
-    float temp = 0.f;
-    float humi = 0.f;
-
-    while(1){
-      sht31_read_temp_humi(&temp, &humi);
-      printf("Temperature: %.2f °C, Humidity: %.2f %%\n", temp, humi);
-      vTaskDelay(2000 / portTICK_PERIOD_MS);
-    }
-}
-
 
 static i2c_port_t i2c_port = I2C_NUM_1;
 

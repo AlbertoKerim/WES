@@ -22,7 +22,7 @@
 #include <math.h>
 
 #include "esp_log.h"
-#include "ambient.h"
+#include "veml7700.h"
 #include "driver/i2c.h"
 
 #define VEML7700_I2C_ADDR UINT8_C(0x10) /*!< Sensor slave I2C address */

@@ -13,8 +13,8 @@ extern "C" {
 #include "lvgl.h"
 
 #include "ui_helpers.h"
-#include "components/ui_comp.h"
-#include "components/ui_comp_hook.h"
+
+
 #include "ui_events.h"
 
 void SpinAndLargen_Animation(lv_obj_t * TargetObject, int delay);
