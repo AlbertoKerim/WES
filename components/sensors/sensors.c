@@ -2,9 +2,7 @@
 
 void bar_update_task(void *arg)
 {
-    /* static int cnt = 0;
-
-    while(1)
+    /* while(1)
     {
         vTaskDelay(1000 / portTICK_PERIOD_MS);
         uint32_t v = lv_bar_get_value(ui_Bar3);
