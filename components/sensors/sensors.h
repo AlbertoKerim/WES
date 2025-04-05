@@ -2,6 +2,7 @@
 #define SENSORS_H
 
 #include "../gui/squareline/project/ui.h"
+#include "gui/gui.h"
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
 

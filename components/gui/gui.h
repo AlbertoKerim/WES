@@ -9,13 +9,14 @@
 
 #ifndef __GUI_H__
 #define __GUI_H__
-
 #ifdef __cplusplus
 extern "C" {
 #endif
 
 //--------------------------------- INCLUDES ----------------------------------
-
+#include "../components/lvgl/src/hal/lv_hal_disp.h"
+#include "../components/lvgl/src/misc/lv_area.h"
+#include "../components/lvgl/src/misc/lv_color.h"
 //---------------------------------- MACROS -----------------------------------
 
 //-------------------------------- DATA TYPES ---------------------------------
@@ -27,6 +28,10 @@ extern "C" {
  * 
  */
 void gui_init(void);
+
+void custom_disp_driver_flush(lv_disp_drv_t *disp_drv, const lv_area_t *area, lv_color_t *color_p);
+void toggle_invert_colors();
+
 
 #ifdef __cplusplus
 }
