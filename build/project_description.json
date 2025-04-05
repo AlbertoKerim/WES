@@ -1,7 +1,7 @@
 {
     "version":            "1.2",
     "project_name":       "esp32_gui",
-    "project_version":    "673f18f-dirty",
+    "project_version":    "979e544-dirty",
     "project_path":       "C:/Users/Matko/Documents/GitHub/WES",
     "idf_path":           "C:/Users/Matko/esp/v5.4.1/esp-idf",
     "build_dir":          "C:/Users/Matko/Documents/GitHub/WES/build",

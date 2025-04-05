@@ -74,6 +74,11 @@ void custom_disp_driver_flush(lv_disp_drv_t *disp_drv, const lv_area_t *area, lv
     disp_driver_flush(disp_drv, area, color_p); // Call the original flush function
 }
 
+int is_inverted(){
+    if(invert_colors) return 1;
+    return 0;
+}
+
 void toggle_invert_colors()
 {
     invert_colors = !invert_colors;

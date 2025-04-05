@@ -39,12 +39,6 @@
 #include "sensors.h"
 //#include "gui.h"
 
-#define SDA_PIN GPIO_NUM_22
-#define SCL_PIN GPIO_NUM_21
-
-#define I2C_MASTER_FREQ_HZ 100000
-#define I2C_MASTER_NUM 1
-
 void i2c_master_setup(void)
 {
     i2c_config_t conf;

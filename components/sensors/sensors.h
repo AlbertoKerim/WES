@@ -11,7 +11,15 @@
 #include "sht31.h"
 #include "tcrt5000.h"
 
+#define ALS_THRESHOLD 5
+
 #define SENSOR_REPORTING_PERIOD 1
+
+#define SDA_PIN GPIO_NUM_22
+#define SCL_PIN GPIO_NUM_21
+
+#define I2C_MASTER_FREQ_HZ 100000
+#define I2C_MASTER_NUM 1
 
 void sensors_init(void);
 

@@ -32,6 +32,8 @@ void gui_init(void);
 void custom_disp_driver_flush(lv_disp_drv_t *disp_drv, const lv_area_t *area, lv_color_t *color_p);
 void toggle_invert_colors();
 
+int is_inverted(void);
+
 
 #ifdef __cplusplus
 }
