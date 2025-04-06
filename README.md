@@ -1,42 +1,133 @@
-# LVGL project for ESP32
 
-This is an ESP32 demo project showcasing LVGL v8.3.x with support for several display controllers and touch controllers.
+# 🚗 Car Infotainment System – WES Hackathon 2025
 
-- Version of ESP-IDF required 5.0.x
-- Version of LVGL used: 8.3.x
+**Team Name:** `Dva ERI, Dva RI`  
+**Hackathon:** WES Hackathon 2025  
+**Team Members:** Alberto Kerim, Borna Krušlin, Niko Šikić, Matko Marjanac
 
+---
 
-## Get started
+## 📌 Overview
 
-### How is the training structured?
-This training contains the following submodules:
-- [lvgl](https://github.com/lvgl/lvgl)
-- [lvgl_esp32_drivers](https://github.com/lvgl/lvgl_esp32_drivers) (this does not have a support for lvgl 8.3. so we provided a patch for this)
+This project is a **Car Infotainment System** built for ESP32 using **ESP-IDF** and **FreeRTOS**. It integrates sensor readings, a GUI dashboard, and BT capabilities to simulate modern vehicle interfaces. Designed for embedded environments, it provides a scalable and responsive car infotainment experience.
 
-#### [LVGL](https://github.com/lvgl/lvgl)
+---
 
-This submodule we are using is an embedded graphics library used to create beautiful UIs for any MCU, MPU and display types. It provides us with APIs for creating buttons, switches, labels, etc. But, for displaying those objects on our display (model ILI9341) and using the touch screen (XPT2046 touch controller) we are using an additional submodule called lvgl_esp32_drivers.
+## 🚀 Features
 
-#### [LVGL_ESP32_DRIVERS](https://github.com/lvgl/lvgl_esp32_drivers)
+- Real-time display of vehicle/environmental data
+- Interactive and responsive GUI (built with LVGL)
+- I2C sensor communication
+- Bluetooth connectivity (For Spotify)
+- Hardware abstraction with modular components
 
-This submodule enables us to use already implemented functions for displaying objects on different displays and receiving touch information (including our ILI9341 display and XPT2046 touch controller) on ESP32. In `gui.c` we pass those implemented functions as callbacks (for flushing the screen and reading touch input) to the LVGL library.
+---
 
-Those two submodules together make lives easier for creating embedded graphics on ESP32.
+## 🧠 Architecture
 
-### Configuration
+```
+ESP32 (FreeRTOS)
+├── GUI (LVGL)
+├── Sensor Manager (I2C)
+├── BT Manager
+└── Main Control Loop (app_main.c)
+```
 
-The project is already set up for Byte Lab Development Kit. If you want to use it on your custom board, you will have to make a few changes.
-1. Open SDK configuration editor (menuconfig) and navigate to **LVGL TFT Display controller**.
-1. Select a display model you are using. Make sure to choose appropriate communication bus, transfer modes and then assign pins in **Display Pin Assignments** section.
-1. Navigate to **LVGL Touch controller** and select a touch panel you are using. Find your model in **Touchpanel Pin Assignment** and assign pins accordingly.
-1. Be careful to change the horizontal and vertical screen resolution, if necessary.
+- **GUI:** Displays sensor data, status, and UI components
+- **Sensor Manager:** Reads data over I2C from connected hardware
+- **Bluetooth:** Connects and play data over speaker
 
+---
 
-### Use LVGL in your project
+## 🔧 Tech Stack
 
-There are three examples provided. Selecting an UI app to run is done by going into menuconfig (`idf.py menuconfig` command) or by editing `sdkconfig` file manually.
-It is better explained in [UI_APP_README](./components/ui_app/README.md).
+- ESP-IDF 5.0.x
+- LVGL 8.3.x
+- FreeRTOS
+- C (Embedded)
+- I2C protocol
+- TFT LCD + XPT2046 Touch Controller (ILI9341)
 
-Feel free to run them and explore their source code. By default, `Squareline` app is enabled.
+---
 
-With the LVGL version 8.3., which is used in this project, you have the ability to install [SquareLine Studio](https://squareline.io) and use the SquareLine UI designer to create your displays and functions for your embedded application and export it to C programming language which you can just add to your project.
+## 📁 Project Structure
+
+| Path                  | Description                              |
+|-----------------------|------------------------------------------|
+| `main/`               | Entry point (`app_main.c`) and system init |
+| `components/gui/`     | Graphical User Interface code            |
+| `components/sensors/` | Sensor initialization and I2C handling   |
+| `components/bt/`| src for bluetooth code for secondary esp32       |
+| `sdkconfig`           | ESP-IDF configuration                    |
+| `Makefile` / `CMakeLists.txt` | Build system setup              |
+
+---
+
+## 🛠️ Setup & Installation
+
+### Prerequisites
+
+- ByteLab ESP32 board
+- ESP-IDF v5.0.x installed
+- Python 3.x
+- USB connection to board
+
+### Build & Flash
+
+```bash
+git clone https://github.com/your-team/WES-main.git
+cd WES-main
+
+idf.py set-target esp32
+idf.py build
+idf.py -p /dev/ttyUSB0 flash  # Update port as needed
+idf.py monitor
+```
+
+---
+
+## 🖼️ Screenshots
+
+> Add real hardware screenshots or system diagrams here.
+
+```
+📷 images/gui-screenshot.jpg
+📷 images/system-architecture.png
+📷 images/system-architecture2.png
+📷 images/system-architecture2.png
+```
+
+```markdown
+![GUI Example](images/gui-screenshot.jpg)
+![System Diagram](images/system-architecture.png)
+![System Diagram](images/system-architecture.png)
+![System Diagram](images/system-architecture.png)
+```
+
+---
+
+## 🧪 Demo Use Case
+
+1. Power on ESP32 with attached screen and sensors.
+2. System initializes GUI and I2C interface.
+3. Sensor data updates are reflected live on-screen.
+4. BT module connects and optionally spins songs.
+
+---
+
+## 👨‍💻 Team Contributions
+
+| Member            | Role                        |
+|-------------------|-----------------------------|
+| **Alberto Kerim** | Sensor integration, I2C     |
+| **Borna Krušlin** | GUI development (LVGL)      |
+| **Niko Šikić**    | Bluetooth system            |
+| **Matko Marjanac**| Main architecture, FreeRTOS |
+
+---
+
+## 📄 License
+
+This project is developed for educational and non-commercial purposes as part of the WES Hackathon 2025.
+
+---
