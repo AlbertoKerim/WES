@@ -80,6 +80,8 @@ cd src
 
 #In src dir
 idf.py fullclean
+rm dependencies.lock
+idf.py reconfigure
 idf.py build
 idf.py -p COMX flash  # Update port as needed
 idf.py -p COMX monitor
