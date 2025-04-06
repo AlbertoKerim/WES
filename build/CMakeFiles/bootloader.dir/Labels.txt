@@ -1,13 +1,13 @@
 # Target labels
  bootloader
 # Source files and their labels
-C:/Users/dkrsl/OneDrive/Documents/GitHub/WES/build/CMakeFiles/bootloader
-C:/Users/dkrsl/OneDrive/Documents/GitHub/WES/build/CMakeFiles/bootloader.rule
-C:/Users/dkrsl/OneDrive/Documents/GitHub/WES/build/CMakeFiles/bootloader-complete.rule
-C:/Users/dkrsl/OneDrive/Documents/GitHub/WES/build/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule
-C:/Users/dkrsl/OneDrive/Documents/GitHub/WES/build/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule
-C:/Users/dkrsl/OneDrive/Documents/GitHub/WES/build/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule
-C:/Users/dkrsl/OneDrive/Documents/GitHub/WES/build/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule
-C:/Users/dkrsl/OneDrive/Documents/GitHub/WES/build/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule
-C:/Users/dkrsl/OneDrive/Documents/GitHub/WES/build/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule
-C:/Users/dkrsl/OneDrive/Documents/GitHub/WES/build/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule
+C:/Users/Matko/Documents/GitHub/WES/build/CMakeFiles/bootloader
+C:/Users/Matko/Documents/GitHub/WES/build/CMakeFiles/bootloader.rule
+C:/Users/Matko/Documents/GitHub/WES/build/CMakeFiles/bootloader-complete.rule
+C:/Users/Matko/Documents/GitHub/WES/build/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule
+C:/Users/Matko/Documents/GitHub/WES/build/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule
+C:/Users/Matko/Documents/GitHub/WES/build/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule
+C:/Users/Matko/Documents/GitHub/WES/build/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule
+C:/Users/Matko/Documents/GitHub/WES/build/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule
+C:/Users/Matko/Documents/GitHub/WES/build/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule
+C:/Users/Matko/Documents/GitHub/WES/build/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule

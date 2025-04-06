@@ -19,6 +19,6 @@ endforeach()
 
 list(REMOVE_DUPLICATES COMPONENT_ADD_INCLUDEDIRS)
 
-set(COMPONENT_PRIV_REQUIRES lvgl lvgl_esp32_drivers esp_timer)
+set(COMPONENT_PRIV_REQUIRES lvgl lvgl_esp32_drivers esp_timer sensors)
 
 register_component()

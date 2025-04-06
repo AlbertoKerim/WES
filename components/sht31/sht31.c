@@ -49,20 +49,6 @@ esp_err_t sht31_read_temp_humi(float *temp, float *humi)
     i2c_master_stop(cmd);
     esp_err_t ret = i2c_master_cmd_begin(i2c_port, cmd, 1000 / portTICK_PERIOD_MS);
     if (ret != ESP_OK) {
-        if (ret == ESP_FAIL) {
-            printf("nevalja fail\n");
-        }
-        else if (ret == ESP_ERR_INVALID_STATE) {
-            printf("nevalja state\n");
-        }
-        else if (ret == ESP_ERR_TIMEOUT) {
-            printf("nevalja timeout\n");
-        }
-        else {
-            printf("nevalja nesto\n");
-        }
-
-        printf("nevalja 1\n");
         return ret;
     }
     i2c_cmd_link_delete(cmd);
@@ -83,7 +69,6 @@ esp_err_t sht31_read_temp_humi(float *temp, float *humi)
     i2c_master_stop(cmd);
     ret = i2c_master_cmd_begin(i2c_port, cmd, 1000 / portTICK_PERIOD_MS);
     if (ret != ESP_OK) {
-        printf("nevalja 2\n");
         return ret;
     }
     i2c_cmd_link_delete(cmd);

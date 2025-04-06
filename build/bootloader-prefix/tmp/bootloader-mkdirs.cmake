@@ -6,22 +6,22 @@ cmake_minimum_required(VERSION 3.5)
 # If CMAKE_DISABLE_SOURCE_CHANGES is set to true and the source directory is an
 # existing directory in our source tree, calling file(MAKE_DIRECTORY) on it
 # would cause a fatal error, even though it would be a no-op.
-if(NOT EXISTS "C:/Users/dkrsl/esp/v5.4.1/esp-idf/components/bootloader/subproject")
-  file(MAKE_DIRECTORY "C:/Users/dkrsl/esp/v5.4.1/esp-idf/components/bootloader/subproject")
+if(NOT EXISTS "C:/Users/Matko/esp/v5.4.1/esp-idf/components/bootloader/subproject")
+  file(MAKE_DIRECTORY "C:/Users/Matko/esp/v5.4.1/esp-idf/components/bootloader/subproject")
 endif()
 file(MAKE_DIRECTORY
-  "C:/Users/dkrsl/OneDrive/Documents/GitHub/WES/build/bootloader"
-  "C:/Users/dkrsl/OneDrive/Documents/GitHub/WES/build/bootloader-prefix"
-  "C:/Users/dkrsl/OneDrive/Documents/GitHub/WES/build/bootloader-prefix/tmp"
-  "C:/Users/dkrsl/OneDrive/Documents/GitHub/WES/build/bootloader-prefix/src/bootloader-stamp"
-  "C:/Users/dkrsl/OneDrive/Documents/GitHub/WES/build/bootloader-prefix/src"
-  "C:/Users/dkrsl/OneDrive/Documents/GitHub/WES/build/bootloader-prefix/src/bootloader-stamp"
+  "C:/Users/Matko/Documents/GitHub/WES/build/bootloader"
+  "C:/Users/Matko/Documents/GitHub/WES/build/bootloader-prefix"
+  "C:/Users/Matko/Documents/GitHub/WES/build/bootloader-prefix/tmp"
+  "C:/Users/Matko/Documents/GitHub/WES/build/bootloader-prefix/src/bootloader-stamp"
+  "C:/Users/Matko/Documents/GitHub/WES/build/bootloader-prefix/src"
+  "C:/Users/Matko/Documents/GitHub/WES/build/bootloader-prefix/src/bootloader-stamp"
 )
 
 set(configSubDirs )
 foreach(subDir IN LISTS configSubDirs)
-    file(MAKE_DIRECTORY "C:/Users/dkrsl/OneDrive/Documents/GitHub/WES/build/bootloader-prefix/src/bootloader-stamp/${subDir}")
+    file(MAKE_DIRECTORY "C:/Users/Matko/Documents/GitHub/WES/build/bootloader-prefix/src/bootloader-stamp/${subDir}")
 endforeach()
 if(cfgdir)
-  file(MAKE_DIRECTORY "C:/Users/dkrsl/OneDrive/Documents/GitHub/WES/build/bootloader-prefix/src/bootloader-stamp${cfgdir}") # cfgdir has leading slash
+  file(MAKE_DIRECTORY "C:/Users/Matko/Documents/GitHub/WES/build/bootloader-prefix/src/bootloader-stamp${cfgdir}") # cfgdir has leading slash
 endif()

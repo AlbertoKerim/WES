@@ -2,35 +2,31 @@
 // SquareLine Studio version: SquareLine Studio 1.4.0
 // LVGL version: 8.3.6
 // Project name: esp32_gui
-
 #include "ui.h"
+#include "esp_log.h"
+#include "driver/gpio.h"
 
-void btn_clicked(lv_event_t *e)
-{
-    // Your code here
-}
+extern int state;
+extern int radio_state;
 
-void pozoviPeru(lv_event_t * e)
-{
-	// Your code here
-    
-}
-void incrementCnt(lv_event_t * e)
-{
-	// Your code here
+void home_to_park(lv_event_t * e)
+{ESP_LOGI("on", "failed on\n");
+	state = 1;
 }
 
-void getTemperature(lv_event_t * e)
+void park_to_home(lv_event_t * e)
 {
-	// Your code here
+	state = 0;
 }
 
-void funkcija1(lv_event_t * e)
+
+void radio_switch(lv_event_t * e)
 {
-	// Your code here
+	if(radio_state)
+	{
+		gpio_set_level(14,1);
+	}
+	else gpio_set_level(14,0);
+	radio_state = 1 - radio_state;
 }
 
-void funkcija2(lv_event_t * e)
-{
-	// Your code here
-}

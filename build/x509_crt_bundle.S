@@ -1,4 +1,4 @@
-/* * Data converted from C:/Users/dkrsl/OneDrive/Documents/GitHub/WES/build/esp-idf/mbedtls/x509_crt_bundle
+/* * Data converted from C:/Users/Matko/Documents/GitHub/WES/build/esp-idf/mbedtls/x509_crt_bundle
  */
 .data
 #if !defined (__APPLE__) && !defined (__linux__)

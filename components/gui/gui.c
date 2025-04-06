@@ -22,7 +22,7 @@
 #include "esp_timer.h"
 
 /* Littlevgl specific */
-#include "lvgl.h"
+#include "../lvgl/lvgl.h"
 #include "lvgl_helpers.h"
 
 #include "squareline/project/ui.h"

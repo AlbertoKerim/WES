@@ -3,6 +3,6 @@
         "gui.h": "c",
         "sensors.h": "c"
     },
-    "idf.portWin": "COM10",
+    "idf.portWin": "COM12",
     "idf.flashType": "UART"
 }
