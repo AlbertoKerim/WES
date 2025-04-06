@@ -3,8 +3,8 @@
 #include "esp_log.h"
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
-#include "esp_timer.h"             // For esp_timer_get_time()
-#include "esp_rom_sys.h"           // For esp_rom_delay_us()
+#include "esp_timer.h"             
+#include "esp_rom_sys.h"           
 #include "hc-sr04.h"
 
 void hcsr04_init() {

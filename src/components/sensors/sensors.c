@@ -1,7 +1,7 @@
 #include "sensors.h"
 
 static TimerHandle_t SENSOR_timer = NULL;
-static TimerHandle_t US_timer = NULL;
+//static TimerHandle_t US_timer = NULL;
 
 veml7700_handle_t veml7700_dev;
 
@@ -24,7 +24,7 @@ extern lv_obj_t * ui_yellow;
 extern lv_obj_t * ui_green;
 
 static void sensor_cb(TimerHandle_t handle);
-static void us_cb();
+//static void us_cb();
 
 void bar_update_task(void *arg)
 {
@@ -38,14 +38,11 @@ void dark_mode(void *arg)
 {
     for(;;)
     {
-        // Read the ALS data
         ESP_ERROR_CHECK(veml7700_read_als_lux_auto(veml7700_dev, &lux_als) );
-        // Convert to foot candles
+
         fc_als = lux_als * LUX_FC_COEFFICIENT;
-        ESP_LOGI("KEK", "%f", fc_als);
 
         if((fc_als < ALS_THRESHOLD && !is_inverted()) || (fc_als > ALS_THRESHOLD && is_inverted())) {
-            ESP_LOGI("KEK", "2");
             toggle_invert_colors();
         }
         vTaskDelay(1000 / portTICK_PERIOD_MS); 
@@ -99,11 +96,10 @@ void sensors_init(void)
 
     xTimerStart(SENSOR_timer, 0);
 
-    US_timer = xTimerCreate("US_timer", (US_PERIOD * 1000) / portTICK_PERIOD_MS, pdTRUE, NULL, us_cb);
+    //US_timer = xTimerCreate("US_timer", (US_PERIOD * 1000) / portTICK_PERIOD_MS, pdTRUE, NULL, us_cb);
 
     //xTimerStart(US_timer, 0);
 
-    //AMB_timer = xTimerCreate("US_timer", (AMB_PERIOD * 1000) / portTICK_PERIOD_MS, pdTRUE, NULL, us_cb);
     xTaskCreatePinnedToCore(dark_mode, "dark_mode", 2048, NULL, 1, NULL, 1);
 
     xTaskCreatePinnedToCore(us_task, "us_task", 2048, NULL, 1, NULL, 1);
@@ -111,7 +107,6 @@ void sensors_init(void)
 
 
 static void sensor_cb(TimerHandle_t handle){
-    //printf("Hello");
     
     if (sht31_read_temp_humi(&temperature, &humidity) == ESP_OK) {
         sprintf(array, "Temperature: %0.f°C", temperature);
@@ -120,12 +115,12 @@ static void sensor_cb(TimerHandle_t handle){
     lv_label_set_text(ui_TempsText, array);
 }
 
+/*
 static void us_cb(){
     
     hcsr04_read_distance(&distance);
 
     lv_obj_add_flag(ui_green, LV_OBJ_FLAG_HIDDEN);
-   // ESP_LOGI("KEK","Borna ubij se");
     
     if(state) {
         if(distance <= DISTANCE_SHORT) {
@@ -143,6 +138,7 @@ static void us_cb(){
         }
     }
 }
+*/
 
 
     

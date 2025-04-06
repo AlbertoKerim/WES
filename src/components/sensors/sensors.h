@@ -29,6 +29,5 @@
 #define DISTANCE_SHORT 30
 
 void sensors_init(void);
-TimerHandle_t get_US_timer(void);
 
 #endif
