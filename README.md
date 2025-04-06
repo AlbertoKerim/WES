@@ -57,7 +57,7 @@ ESP32 (FreeRTOS)
 | `main/`               | Entry point (`app_main.c`) and system init |
 | `components/gui/`     | Graphical User Interface code            |
 | `components/sensors/` | Sensor initialization and I2C handling   |
-| `components/bt/`| src for bluetooth code for secondary esp32       |
+| `src/bt`| src for bluetooth code for secondary esp32       |
 | `sdkconfig`           | ESP-IDF configuration                    |
 | `Makefile` / `CMakeLists.txt` | Build system setup              |
 
@@ -76,12 +76,13 @@ ESP32 (FreeRTOS)
 
 ```bash
 git clone https://github.com/your-team/WES-main.git
-cd WES-main
+cd src
 
-idf.py set-target esp32
+#In src dir
+idf.py fullclean
 idf.py build
-idf.py -p /dev/ttyUSB0 flash  # Update port as needed
-idf.py monitor
+idf.py -p COMX flash  # Update port as needed
+idf.py -p COMX monitor
 ```
 
 ---
