@@ -92,16 +92,16 @@ idf.py monitor
 
 ```
 📷 images/gui-screenshot.jpg
-📷 images/system-architecture.png
+📷 images/system-architecture1.png
 📷 images/system-architecture2.png
-📷 images/system-architecture2.png
+📷 images/system-architecture3.png
 ```
 
 ```markdown
-![GUI Example](images/gui-screenshot.jpg)
-![System Diagram](images/system-architecture.png)
-![System Diagram](images/system-architecture.png)
-![System Diagram](images/system-architecture.png)
+![GUI](images/gui-screenshot.jpeg)
+![Night mode](images/system-architecture1.jpeg)
+![Radio](images/system-architecture2.jpeg)
+![Radar](images/system-architecture3.jpeg)
 ```
 
 ---
